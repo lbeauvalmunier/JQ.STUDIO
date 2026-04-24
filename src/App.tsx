@@ -225,7 +225,7 @@ export default function App() {
                           <img
                             src={item.img}
                             alt={`Galerie ${item.img}`}
-                            className={`w-full h-auto transition-opacity duration-700 hover:opacity-80 cursor-zoom-in ${
+                            className={`w-full h-auto transition-opacity duration-700 hover:opacity-80 ${
                               isLast ? "h-full object-cover" : ""
                             } ${
                               item.img === "https://lh3.googleusercontent.com/u/0/d/1A-Nj3BnNoPkiY80vG6O6Up5DmQo8vKuG" 
@@ -280,7 +280,7 @@ export default function App() {
               </motion.div>
             </div>
 
-            <div className="w-full overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing">
+            <div className="w-full overflow-x-auto no-scrollbar">
               <div className="flex flex-nowrap">
                 {IMAGES.lePalmierGallery.map((img, i) => (
                   <div key={i} className="flex-none w-[300px] aspect-[3/4]">
@@ -306,7 +306,7 @@ export default function App() {
               </motion.h3>
             </div>
 
-            <div className="w-full overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing pb-24">
+            <div className="w-full overflow-x-auto no-scrollbar pb-24">
               <div className="flex flex-nowrap">
                 {IMAGES.leDefileGallery.map((img, i) => (
                   <div key={i} className="flex-none w-[350px] aspect-[3/4]">

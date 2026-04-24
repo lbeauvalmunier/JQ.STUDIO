@@ -10,7 +10,6 @@
 @layer base {
   body {
     @apply bg-white text-black font-helvetica antialiased selection:bg-black selection:text-white;
-    cursor: crosshair;
   }
 
   h1, h2, h3 {
