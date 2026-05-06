@@ -107,6 +107,10 @@ export default function App() {
   const [generatedHero, setGeneratedHero] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [activeSection]);
+
   const handleGenerateCampaign = async () => {
     setIsGenerating(true);
     const result = await generateCampaignImage(CAMPAIGN_PROMPT);
