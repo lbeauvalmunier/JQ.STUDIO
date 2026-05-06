@@ -111,6 +111,11 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [activeSection]);
 
+  useEffect(() => {
+    (window as any)._klOnsite = (window as any)._klOnsite || [];
+    (window as any)._klOnsite.push(['openForm', 'RR5EeB']);
+  }, []);
+
   const handleGenerateCampaign = async () => {
     setIsGenerating(true);
     const result = await generateCampaignImage(CAMPAIGN_PROMPT);
