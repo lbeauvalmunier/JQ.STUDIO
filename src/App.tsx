@@ -85,6 +85,14 @@ const IMAGES = {
     "https://lh3.googleusercontent.com/u/0/d/1Y3JACCOrnOpVtfw4QlWDrasYZurTcUnW",
     "https://lh3.googleusercontent.com/u/0/d/1humwLXAPP4sSYDHVrRL2wXONGPS-kMg8",
     "https://lh3.googleusercontent.com/u/0/d/1C9JfbYlagtsGkKz5-pkqRL16vGzTxCNN"
+  ],
+  laMuseGallery: [
+    "https://lh3.googleusercontent.com/u/0/d/1d6X4FIPPBEMBPHujUR5Ye1MIsfAXm-fz",
+    "https://lh3.googleusercontent.com/u/0/d/1oxXQeABl2hl_FKt49jOG1KZ6x-QRBYmw",
+    "https://lh3.googleusercontent.com/u/0/d/14Dt7KOu_kRO0-WTqwrREGDkHuYn6X6kV",
+    "https://lh3.googleusercontent.com/u/0/d/167gFnlZM_3fVeCzTsJML5wraoOhHVdkV",
+    "https://lh3.googleusercontent.com/u/0/d/1RygmR0w3cKMP3PGkvcGwfj4H-JqQ-xmJ",
+    "https://lh3.googleusercontent.com/u/0/d/1yW8s-5s3tlCBiYzkuj6gWnPNNAm2drPz"
   ]
 };
 
@@ -132,13 +140,13 @@ export default function App() {
       {/* Header */}
       <header className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-sm px-8 py-6 flex items-center gap-16 border-b border-black/5">
         <h1 
-          className="text-2xl font-segoe font-bold tracking-tight cursor-pointer leading-none" 
+          className="text-2xl font-segoe font-semibold tracking-tight cursor-pointer leading-none" 
           onClick={() => setActiveSection("HOME")}
         >
           JQ STUDIO
         </h1>
         <nav className="flex gap-8 text-[10px] font-helvetica tracking-[0.2em] leading-none">
-          {["ACCUEIL", "LA GALERIE", "LE PALMIER", "NEWSLETTER"].map((item) => (
+          {["ACCUEIL", "LA GALERIE", "LE PALMIER", "LA MUSE", "NEWSLETTER"].map((item) => (
             <button
               key={item}
               onClick={() => setActiveSection(item === "ACCUEIL" ? "HOME" : item)}
@@ -201,7 +209,7 @@ export default function App() {
             transition={{ duration: 1 }}
             className="space-y-24 px-8"
           >
-            <h2 className="text-sm font-didot tracking-[0.5em] text-center mb-24 uppercase">
+            <h2 className="text-sm font-helvetica font-semibold tracking-[0.2em] text-center mb-24 uppercase">
               LA GALERIE
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch">
@@ -300,7 +308,7 @@ export default function App() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="text-sm font-helvetica font-bold tracking-[0.2em] uppercase text-left"
+                className="text-sm font-helvetica font-semibold tracking-[0.2em] uppercase text-left"
               >
                 le défilé
               </motion.h3>
@@ -323,6 +331,47 @@ export default function App() {
           </motion.div>
         )}
 
+        {activeSection === "LA MUSE" && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="space-y-32"
+          >
+            <div className="flex flex-col md:flex-row min-h-screen">
+              <div className="w-full md:w-1/2 bg-neutral-50/30">
+                <img 
+                  src="https://lh3.googleusercontent.com/u/0/d/1gOOfw31Qbofrr_plUCmBmipysGt13YnD" 
+                  alt="LA MUSE" 
+                  className="w-full h-auto object-contain"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="w-full md:w-1/2 flex flex-col items-center justify-center p-8 md:px-8 lg:px-10">
+                <h2 className="text-sm font-helvetica font-semibold tracking-[0.2em] uppercase text-left w-full">LA MUSE : LILINE JACQUEMUS</h2>
+                <p className="mt-8 text-xs font-helvetica font-medium tracking-wide leading-relaxed text-black text-justify w-full">
+                  Jacquemus est heureux de dévoiler Liline Jacquemus comme toute première ambassadrice de la Maison, un choix profondément personnel qui revient aux racines mêmes de Jacquemus. Née en 1946 et élevée à Alleins, petit village du Sud de la France, Liline Jacquemus a grandi dans une famille d’agriculteurs. Élevée par une mère italienne, célibataire et indépendante, elle a été entourée de paysages baignés de soleil, de simplicité et de valeurs fortes. C’est dans ce cadre rural que se sont discrètement posées les bases d’une histoire et d’un héritage. Liline est la grand-mère de Simon Porte Jacquemus et la mère de Valérie Jacquemus. Bien avant la création de la marque, elle en était déjà une source d’inspiration. Sa force, son élégance et son authenticité ont façonné la vision de Simon Porte Jacquemus et continuent de définir l’esprit de Jacquemus.
+                </p>
+              </div>
+            </div>
+
+            <div className="w-full overflow-x-auto no-scrollbar pb-24">
+              <div className="flex flex-nowrap">
+                {IMAGES.laMuseGallery.map((img, i) => (
+                  <div key={i} className="flex-none w-[350px] aspect-[3/4]">
+                    <img 
+                      src={img} 
+                      alt={`Muse ${i}`} 
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+
         {activeSection === "NEWSLETTER" && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -331,7 +380,7 @@ export default function App() {
             className="max-w-xl mx-auto text-center space-y-16 pt-24 px-8"
           >
             <div className="space-y-6">
-              <h2 className="text-sm font-didot tracking-[0.5em] uppercase">REJOINDRE L'ARCHIVE</h2>
+              <h2 className="text-sm font-helvetica font-semibold tracking-[0.2em] uppercase">REJOINDRE L'ARCHIVE</h2>
               <p className="text-[10px] font-helvetica leading-relaxed tracking-wider uppercase text-black/60">
                 RECEVEZ DES MISES À JOUR EXCLUSIVES, DES SÉLECTIONS NUMÉRIQUES ET UN ACCÈS PRIVÉ AU STUDIO.
               </p>

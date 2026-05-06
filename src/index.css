@@ -13,7 +13,7 @@
   }
 
   h1, h2, h3 {
-    @apply font-didot uppercase tracking-[0.3em];
+    @apply font-helvetica font-semibold uppercase tracking-[0.2em];
   }
 }
 
